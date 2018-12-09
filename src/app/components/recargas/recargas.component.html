@@ -1,0 +1,11 @@
+<div>
+    <nvd3 #nvd3 [options]="options" [data]="data"></nvd3>
+</div>
+
+<button (click)="filtrado(10)" type="button" class="btn btn-primary">Recarga de 10</button>
+<button (click)="filtrado(20)" type="button" class="btn btn-secondary">Recarga de 20</button>
+<button (click)="filtrado(50)" type="button" class="btn btn-success">Recarga de 50</button>
+<button (click)="filtrado(100)" type="button" class="btn btn-danger">Recarga de 100</button>
+<button (click)="filtrado(200)" type="button" class="btn btn-warning">Recarga de 200</button>
+<button (click)="filtrado(500)" type="button" class="btn btn-info">Recarga de 500</button>
+<button (click)="getPeriodos()" type="button" class="btn btn-dark">Todas las recargas</button>

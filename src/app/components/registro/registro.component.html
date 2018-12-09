@@ -1,0 +1,59 @@
+<div class="container">
+    <div *ngIf="danger===true" class="alert alert-danger" role="alert">
+        Asegurate de llenar todos los campos y que el numero sea de 10 digitos
+    </div>
+    <div *ngIf="statusRecarga===true" class="alert alert-primary" role="alert">
+        Recarga Exitosa
+    </div>
+    <form #f="ngForm" name="f" (ngSubmit)='onSubmit(f)'>
+        <div class="form-group">
+            <label for="numero">Numero</label>
+            <input pattern="[1-9]{1}\d{9}" type="number" ngModel name="numero" class="form-control" id="numero" aria-describedby="numeroHelp" required="true" placeholder="Ingresa el numero de telefono">
+            <small id="numeroHelp" class="form-text text-muted">Numero de telefono.</small>
+
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="monto">Compañia</label>
+            </div>
+            <select class="form-control" id="company" required="true" name="company" ngModel>
+              <option value="movistar">Movistar</option>
+              <option value="at&t">AT&T</option>
+              <option value="telcel">Telcel</option>
+              <option value="unefon">Unefon</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="monto">Montos</label>
+            </div>
+            <select class="form-control" id="monto" required="true" name="monto" ngModel>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="200">200</option>
+              <option value="500">500</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+
+</div>
+
+<script>
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() { // Fetch all the forms we want to apply custom Bootstrap validation styles to var forms = document.getElementsByClassName('needs-validation'); // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
